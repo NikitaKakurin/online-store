@@ -1,0 +1,23 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.article{
+    width: 100%;
+    max-width: 1045px;
+
+    &__wrapper{
+        @include flex($j_content:space-evenly);
+        width: 100%;
+        row-gap: 40px;
+        column-gap: 20px;
+        padding-top: 7px;
+    }
+
+    @media(max-width: 570px){
+        &__wrapper{
+            @include flex($direction: column, $align:center);
+        }
+    }
+}
+

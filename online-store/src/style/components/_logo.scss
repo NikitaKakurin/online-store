@@ -1,0 +1,13 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.logo{
+    font-size: 5rem;
+    font-family: 'Pattaya';
+    text-decoration: none;
+    color: rgb(13, 51, 91);
+    @media (max-width:370px) {
+        font-size: 2rem;
+    }
+}

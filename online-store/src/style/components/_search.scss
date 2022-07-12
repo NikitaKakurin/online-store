@@ -1,0 +1,99 @@
+.filter__container-wrapper-search{
+    display: flex;
+    font-size: 0px;
+    width: 250px;
+}
+
+.filter__wrapper-search{
+    font-size: 16px;
+    position: relative;
+    order: 2;
+}
+
+.filter__search-submit-btn{
+    @include formsInputs();
+    width: 30px;
+    order:2;
+    padding: 0;
+    background: $color-button;
+    cursor: pointer;
+    border-left: 0px;
+    border-top-right-radius: 5px;   
+    border-bottom-right-radius: 5px; 
+    transition: background 0.5s, color 0.5s;
+    order: 2;
+
+    &:hover{
+        background: darken($color: $color-button, $amount: 10);
+        color: $color-text;
+        cursor: pointer ;
+    }
+}
+
+.filter__search-icon{    
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/svg/search_icon.svg");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.filter__search{
+    @include formsInputs();
+    border-top-left-radius: 5px;   
+    border-bottom-left-radius: 5px; 
+    width: 150px;    
+    padding-right: 40px;
+    transition: color .5s ease-in, border .5s ease-in,  width .5s ease-in;
+    color: $color-placeholder;
+
+    &::placeholder{
+        color: $color-placeholder;
+        transition: color .5s;
+    }
+
+    &:hover{
+        border: 2px solid $color-button;
+        color: $color-button;
+    }
+
+    &:focus{
+        background-color: $color-category;
+        color:$color-text;
+        width: 200px;
+    }
+}
+
+.filter__search:focus::placeholder{
+    color:$color-text
+}
+
+.filter__search:focus+.filter__search-reset-btn{
+    color:$color-text
+}
+
+.filter__search:hover::placeholder{
+    color: $color-text;
+}
+
+.filter__search-reset-btn{
+    font-size: 40px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: $color-placeholder;
+    font-size: inherit;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    transition: color .5s ease-in;
+
+    &:hover{
+        cursor: pointer;
+        outline: 2px solid $color-button;
+        border-radius: 10px;
+        color: $color-button;
+    }
+}

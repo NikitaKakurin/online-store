@@ -1,0 +1,28 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.main{
+    width: 100%;
+
+    &__wrapper{
+        @include flex($direction: column, $align:center);
+    }
+
+    .category_name{
+        width: 100%;
+        max-width: 1400px;
+        align-self: start;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 64px;
+        @extend %font-prim;
+        @include font-param($size:5rem, $weight:700, $height:59px);
+
+        @media (max-width:370px) {
+            font-size: 2.5rem;
+        }
+    }
+
+}

@@ -1,0 +1,18 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.header{
+    width: 100%;
+    border-bottom: 1px solid #E7E7E7;
+    &__wrapper{
+        @include flex($j_content:space-between,$align:center,$wrap: nowrap);
+    }
+
+    @media (max-width:1300px) {
+        &__wrapper{
+            position: relative;
+        }
+
+    }
+}

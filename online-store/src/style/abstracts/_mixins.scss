@@ -1,0 +1,23 @@
+@mixin font-param($size:1.4rem, $weight:700, $height:1.7rem, $letter:0){
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    letter-spacing: $letter;
+}
+
+@mixin flex($direction:row, $j_content:normal, $wrap:wrap, $align:normal){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $j_content;
+    flex-wrap: $wrap;
+    align-items: $align;
+}
+
+@mixin formsInputs() {
+    border: 2px solid #22254b;
+    background: transparent;
+    height: 30px;
+    padding: 10px 8px;
+    font-size: inherit;
+    font-family: inherit;
+}

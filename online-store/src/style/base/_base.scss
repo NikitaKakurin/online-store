@@ -1,0 +1,43 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+
+html{
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+body{
+    @extend %font-prim;
+    @include font-param();
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.visually-hidden{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.underline{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    @extend %transition;
+    background-color: $color-button;
+}
+

@@ -54,6 +54,7 @@
     },
     "dependencies": {
         "@types/webpack": "^5.28.0",
-        "@types/webpack-env": "^1.17.0"
+        "@types/webpack-env": "^1.17.0",
+        "nouislider": "^15.6.0"
     }
 }

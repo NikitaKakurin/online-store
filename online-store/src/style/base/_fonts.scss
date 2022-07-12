@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "TT Norms";
+    src: url("../assets/fonts/norms/TTNorms-Bold.eot");
+    src:local("TT Norms-Bold"),local("TT Norms Bold"),
+        url("../assets/fonts/norms/TTNorms-Bold.woff") format("woff"),
+        url("../assets/fonts/norms/TTNorms-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;   
+}
+
+@font-face {
+    font-family: "TT Norms";
+    src: url("../assets/fonts/norms/TTNorms-Medium.eot");
+    src:local("TT Norms-Medium"),local("TT Norms Medium"),
+        url("../assets/fonts/norms/TTNorms-Medium.woff") format("woff"),
+        url("../assets/fonts/norms/TTNorms-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;   
+}
+
+@font-face {
+    font-family: "Circe";
+    src: url("../assets/fonts/circe/Circe-regular.eot");
+    src:local("Circe-Regular"),local("Circe Regular"),
+        url("../assets/fonts/circe/Circe-regular.woff") format("woff"),
+        url("../assets/fonts/circe/Circe-regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;   
+}
+
+@font-face {
+    font-family: "Pattaya";
+    src:local("Pattaya-Regular"),local("Pattaya-Regular"),
+        url("../assets/fonts/pattaya/Pattaya-Regular.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;   
+}

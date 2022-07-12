@@ -1,0 +1,90 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.product_card{
+    text-decoration: none;
+    @extend %font-prim;
+    @include font-param($size:1.4rem, $height:2rem, $weight:700);
+    color: $color-text;
+
+    &__wrapper{
+        width: 246px;
+        margin: 0;
+        overflow: hidden;
+        
+        @extend %cursor;
+    
+        &:hover>img{
+            transform: scale(1.1);
+            z-index: 1;
+        }
+    
+        img{
+            display: block;
+            background-color: #fff;
+            width: 246px;
+            height: 200px;
+            @extend %transition;
+        }
+    
+    
+    
+        figcaption{
+            @include flex($direction: column, $align:center, $j_content:space-between);
+            row-gap: 10px;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            min-height: 112px;
+            background-color: $color-category;
+
+            .product_card__text{
+                width: 100%;
+                @include flex($align:center, $j_content:space-between);
+                border-bottom: 1px solid #111;
+            }
+
+            .product_card__action{
+                @include flex($align:center, $j_content:space-evenly);
+                width: 100%;
+
+                button{
+                    @include flex($align:center, $j_content:center);
+                    width: 30%;
+                    height: 30px;
+                    border: none;
+                    font-size: 30px;
+                    line-height: 30px;
+                    border-radius: 5px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    transition: background-color .5s;   
+                }
+
+                .product_card__delete{
+                    background-color: rgb(209, 120, 120);
+                    background-image: url(../assets/svg/basket-minus.svg);
+
+                    &:hover{
+                        background-color: darken($color: rgb(202, 85, 85), $amount: 10);
+                    }
+                }
+
+                .product_card__add{
+                    background-color: rgb(11, 223, 22);
+                    background-image: url(../assets/svg/basket-plus.svg);
+
+                    &:hover{
+                        background-color: darken($color: rgb(11, 223, 22), $amount: 10);
+                    }
+                }
+
+            }
+
+        }
+    
+    }
+
+}

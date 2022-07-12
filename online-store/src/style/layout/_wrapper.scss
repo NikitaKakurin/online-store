@@ -1,0 +1,10 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.wrapper{
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    margin: 0 auto;
+}

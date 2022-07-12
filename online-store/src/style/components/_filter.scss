@@ -1,0 +1,94 @@
+.filter__container{
+    width: 100%;
+    border-bottom: 1px solid #E7E7E7;
+    padding-right: 60px;
+}
+
+.filter__wrapper{
+    @include flex($wrap:nowrap, $align:center, $j_content:space-between);
+    padding: 45px 0;
+    width: 100%;
+    max-width: 728px;
+    margin-left: auto;
+}
+
+.filter__popular{
+    height: 30px;
+    @include flex($wrap:nowrap, $align:center);
+}
+
+.filter__reset{
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: $color-button;
+    transition:background-color 0.5s;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+
+    &:hover{
+        background-color:darken($color: $color-button, $amount: 10%)
+    }
+}
+
+.filters{
+    &__list{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 1px;
+    }
+
+    &__item{
+        width: 100%;
+        max-width: 266px;
+    }
+
+    &__category{
+        position: relative;
+        @extend %cursor;
+        @extend %text-transform;
+        @extend %font-prim;
+        @include font-param($size:1.4rem, $weight:700, $height:1.7rem, $letter:0.05em);
+        display: inline-block;
+        width: 266px;
+        margin: 0;
+        padding-top: 21px;
+        padding-bottom: 21px;
+        padding-left: 30px;
+        border-bottom: 1px solid #E6E6E6;
+        background-color: $color-category;
+
+        &:hover>.underline{
+            width: 100%;
+        }
+
+        &-active>.underline{
+            width: 100%;
+        }
+    }
+    &__type{
+        list-style: none;
+        @extend %cursor;
+        @include flex($direction: column, $wrap:nowrap);
+        max-height: 0px;
+        overflow: hidden;
+        row-gap: 14px;
+        background-color: #FEFEFE;
+        transition: max-height 0.5s, padding 0.5s;
+        padding: 10px 20px;
+    
+        &-active{        
+            max-height: 400px;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+    }
+
+    .checkbox-wrapper{
+        @include flex($align:center,$wrap:nowrap);
+        column-gap: 10px;
+    }
+}
+

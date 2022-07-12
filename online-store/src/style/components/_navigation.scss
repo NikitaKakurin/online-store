@@ -1,0 +1,42 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.navigation{
+    margin-left: 100px;
+    width: 100%;
+    max-width: 1045px;
+
+    &__list{
+        @include flex($j_content:space-between, $align:center);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item{
+        margin: 0;
+        padding: 52px 0;
+        position: relative;
+    }
+
+    &__link{
+        @extend %font-prim;
+        @include font-param($size:1.4rem, $weight:500, $height:1.7rem, $letter:0.1em);
+        @extend %text-transform;
+        @extend %cursor;
+        text-decoration: none;
+        color:$color-text;
+
+        &:hover+.underline{
+            width:100%;
+        }
+
+        &-active+.underline{
+            width:100%;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,14 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.content-wrapper{
+    @include flex($j_content:space-between,$wrap:no-wrap);
+    padding-bottom: 60px;
+    gap: 20px;
+
+    @media (max-width:630px){
+        @include flex($direction:column,$align:center);
+        padding-bottom: 50px;
+    }
+}

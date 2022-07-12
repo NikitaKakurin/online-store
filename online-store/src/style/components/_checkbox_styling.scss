@@ -1,0 +1,30 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.form__label_rules{
+    @extend %cursor;
+    @include flex($j-content:center, $align:center);
+    width: 11px;
+    height: 11px;
+    border: 1px solid #1c1c1c;
+    margin-right: 13px;
+    margin-top: 2px;
+
+            
+    .label__inner{
+        @extend %transition;
+        display: inline-block;
+        height: 5px;
+        width: 5px;
+        border-radius: 1px solid $color-button;
+        background-color: $color-button;
+        opacity: 0;
+    }
+}
+
+.checkbox:checked~.form__label_rules{
+    .label__inner{
+        opacity: 1;
+    }
+}

@@ -1,0 +1,78 @@
+.footer{
+    width: 100%;
+
+    &__wrapper{
+        @include flex($align:center, $j-content:space-between);
+        padding-top: 37px;
+        padding-bottom: 36px;
+    }
+
+    &__copyright_text{
+       @include font-param($size:1.8rem, $weight:500, $height:2.4rem);
+       color: $color-copyright;
+    }
+
+    @media(max-width:940px){
+
+        &__wrapper{
+            @include flex($direction:column, $align:center);
+        }
+
+        &__development_wrapper{
+            @include flex($direction:column, $align:center);
+            gap: 0px;
+        }
+
+        &__copyright_text{
+            text-align: center;
+        }
+    }
+}
+
+.github__link {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    text-decoration: none; 
+    cursor: pointer;
+    transition: color 0.4s, transform 0.4s; 
+    
+    &:hover {
+        color: $color-button;
+        transform: translateY(-0.4rem);   
+    }
+}
+
+.rss__link,
+.github__logo{
+    display: inline-block;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(60%) sepia(76%) saturate(943%) hue-rotate(166deg) brightness(100%) contrast(104%);
+    transition: filter 0.4s;  
+}
+
+.github__logo{
+    color: $color-additional;
+    width: 4rem;
+    height: 4rem;
+    background-image: url(../assets/svg/Octicons-mark-github.svg);
+}
+
+.rss__link:hover,
+.github__link:hover .github__logo {
+    filter: invert(68%) sepia(33%) saturate(884%) hue-rotate(79deg) brightness(92%) contrast(90%);
+}
+
+.rss__link {
+    width: 10rem;
+    height: 4rem;
+    background-image: url(../assets/svg/rs_school_js.svg);
+    transition: filter 0.4s, transform 0.4s;  
+
+    &:hover {
+        transform: translateY(-0.25rem);
+    }
+}

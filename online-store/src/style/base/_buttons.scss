@@ -1,0 +1,19 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.button{
+    @extend %font-prim;
+    @include font-param($size:1.2rem, $weight:500, $height:2rem, $letter:0.1em);
+    @extend %text-transform;
+    @extend %cursor;
+    @extend %transition;
+    background-color: $color-button;
+    color: $color-button-text;
+    border: none;
+    padding: 20px 59px;
+
+    &:hover{
+        background-color: darken($color-button,20%);
+    }
+}

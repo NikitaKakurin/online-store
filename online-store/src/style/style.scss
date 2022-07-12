@@ -1,0 +1,36 @@
+@import './base/fonts';
+@import './base/normalize';
+
+// -----abstracts----
+@import './abstracts/constants';
+@import './abstracts/placeholder';
+@import './abstracts/mixins';
+
+// -----base-----
+@import './base/base';
+@import './base/buttons';
+
+// -----layout----
+@import './layout/container';
+@import './layout/wrapper';
+@import './layout/header';
+@import './layout/main.scss';
+@import './layout/content.scss';
+@import './layout/footer';
+
+// -----components----
+@import './components/feedback';
+@import './components/navigation';
+@import './components/logo';
+@import './components/aside';
+@import './components/product_card';
+@import './components/article';
+@import './components/checkbox_styling';
+@import './components/contact';
+@import './components/nouislider';
+@import './components/search';
+@import './components/sort';
+@import './components/filter';
+@import './components/custom-nouislider';
+@import './components/basket'
+

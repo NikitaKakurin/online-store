@@ -1,0 +1,165 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+.contact_us{
+    width: 100%;
+    background-color: $color-category;
+    padding: 64px 0;
+
+    &__wrapper{
+        @include flex($j-content:space-between);
+    }
+
+    &__content_wrapper{
+        width: 400px;
+        max-width: 400px;
+    }
+
+    &__title{
+        @extend %font-prim;
+        @include font-param($size:3.6rem, $weight:700, $height:4.25rem);
+        width: 100%;
+        margin: 0;
+    }
+
+    &__text{
+        @extend %font-prim;
+        @include font-param($size:1.8rem, $weight:500, $height:3rem);
+    }
+
+    @media(max-width:1300px){
+        &__wrapper{
+            @include flex($direction:column, $j-content:space-between,$align:center);
+        }
+        &__content_wrapper{
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.form{
+    @include flex($align:center, $j-content:space-between);
+    width: 100%;
+    max-width: 868px;
+    row-gap: 20px;
+    column-gap: 20px;
+    
+    &__input_wrapper{
+        @include flex($align:center,$wrap:nowrap);
+        width: 100%; 
+        max-width:424px;
+        background-color: $color-button-text;
+
+        input{
+            @extend %cursor;
+            @extend %transition;
+            width: 100%;
+            max-width: 363px;
+            height: 60px;
+            padding-left: 24px;
+            border: none;
+
+            &:hover,
+            &:hover::placeholder{
+                color:#000;
+            }
+        }
+    }
+
+    &__icon{
+        display: block;
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background-size: 16px;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &::after{
+            position: absolute;
+            content:"";
+            top: 13px;
+            right: 0;
+            width: 1px;
+            height: 34px;
+            background-color: #F1F1F1;
+        }
+    }
+
+    &__icon_fio{
+        background-image: url("../assets/svg/user.svg");
+    }
+
+    &__icon_phone{
+        background-image: url("../assets/svg/phone.svg");
+    }
+
+    &__icon_email{
+        background-image: url("../assets/svg/email.svg");
+    }
+
+    &__icon_message{
+        background-image: url("../assets/svg/chat.svg");
+    }
+
+    &__apply_wrapper{
+        @include flex($j-content:space-between, $align:center);
+        gap: 20px;
+        width:100%;
+        max-width:868px;
+        padding-top: 10px;
+    }
+
+    &__rules_wrapper{
+        @include flex();
+        width: 100%; 
+        max-width:424px;
+    }
+
+  
+    .rules_wrapper{
+        height: 100%;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding-right: 22px;
+    }
+
+    &__rules_text{
+        @extend %font-prim;
+        @include font-param($size:1.4rem, $weight:400, $height:2rem);
+        display: inline-block;
+        width: 236px;
+        height: 60px;
+        vertical-align: top;
+        margin-top: -3px;
+
+        a{
+            @extend %font-prim;
+            @include font-param($size:1.4rem, $weight:500, $height:2rem);
+            color: $color-text;
+        }
+    }
+
+    @media (max-width:930px){
+        justify-content: center;
+
+        &__apply_wrapper{
+            justify-content: center;
+        }
+
+        &__rules_text{
+            height: auto;
+
+        }
+
+        &__rules_wrapper{
+            justify-content: flex-end;
+        }
+        .rules_wrapper{
+            padding-right: 0;
+        }
+    }
+}

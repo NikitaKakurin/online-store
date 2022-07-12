@@ -1,0 +1,22 @@
+.filter__sort{
+    height: 30px;
+    font-size: 16px;
+    color: $color-placeholder;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: border 0.5s, color 0.5s;
+    border: 2px solid $color-text;
+    cursor: pointer;
+
+    &:hover{
+        border: 2px solid $color-button;
+        color: $color-text;
+    }
+
+    :focus{
+        background-color: $color-category;
+        border: 2px solid $color-text;
+        color:$color-text;
+        width: 200px;
+    }
+}

@@ -1,0 +1,103 @@
+@import '../abstracts/constants';
+@import '../abstracts/placeholder';
+@import '../abstracts/mixins';
+
+
+.feedback{
+    order:-1;
+    width: 100%;
+    border-bottom: 1px solid #E6E6E6;
+
+    &__content{
+        @include flex($align:center, $j_content:space-between);
+        width: 100%;
+        max-width: 1045px;
+        margin-left: auto;
+    }
+
+    &__address{
+        @include flex($j_content:space-between,$align:center);
+        width: 100%;
+        max-width: 686px;
+        gap: 32px
+    }
+
+    &__phone_link,
+    &__email_link,
+    &__location_link{
+        @extend %font-prim;
+        @extend %cursor;
+        @extend %transition;
+        color: $color-text;
+
+        &:hover span{
+            color: lighten($color-text,45%)
+        }
+    }
+
+    &__phone_link,
+    &__location_link{
+        text-decoration: none;
+    }
+
+
+    &__phone_link{
+        @include font-param($weight:700,$height:20px)
+    }
+
+    &__email_link,
+    &__location_link{
+        @include font-param($weight:500,$height:20px)
+    }
+
+    &__location{
+        padding-right: 13px;
+    }
+
+    .icon{
+        display: inline-block;
+        margin-right: 9px;
+        background-repeat: no-repeat;
+        background-position:bottom;
+    }
+
+    .icon-location{
+        background-image: url(../assets/svg/location.svg);
+        width:10px;
+        height:12px;
+    }
+    
+    .icon-phone{
+        background-image: url(../assets/svg/phone.svg);
+        width:11px;
+        height:12px;
+    }
+    
+    .icon-email{
+        background-image: url(../assets/svg/email.svg);
+        width:11px;
+        height:18px;
+    }
+
+    @media(max-width:1000px){
+        &__content{
+            padding: 20px 0;
+        }
+
+        &__address{
+            @include flex($direction:column, $j-content:center);
+            max-width: 350px;
+            gap: 1rem;
+        }
+
+    }
+
+    @media(max-width:700px){
+        &__content{
+            @include flex($direction:column, $j-content:center);
+            max-width: 320px;
+            row-gap: 2rem;
+        }
+    }
+}
+
