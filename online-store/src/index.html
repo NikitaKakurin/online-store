@@ -39,7 +39,7 @@
         </section>
         <main class="main">
             <div class="main__wrapper">
-                <form action="" method="post" id="form-filter" class="filter__container">
+                <form action="" method="post" id="form-search" class="filter__container">
                     <div class="filter__wrapper">
                         <div class="filter__popular">
                             <input type="checkbox" name="popular" id="popular">
@@ -74,93 +74,95 @@
                 </div>
                 <div class="wrapper content-wrapper">
                     <aside class="aside">
-                        <fieldset class="filters" form="form-filter">
-                            <legend class="filters__legend">Фильтры:</legend>
-                            <ul class="filters__list">
-                                <li class="filters__item">
-                                    <h5 class="filters__category filters__category-active" data-category="brand">Брэнд<span class="underline"></span></h5>
-                                    <div class="filters__type filters__type-brand filters__type-active" data-category="brand">
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="siemens" id="checkbox-siemens"><label for="checkbox-siemens">Siemens</label>
+                        <form action="#" method="post" id="form-filter">
+                            <fieldset class="filters">
+                                <legend class="filters__legend">Фильтры:</legend>
+                                <ul class="filters__list">
+                                    <li class="filters__item">
+                                        <h5 class="filters__category" data-category="brand">Брэнд<span class="underline"></span></h5>
+                                        <div class="filters__wrapper" data-category="brand">
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="siemens" id="checkbox-siemens"><label for="checkbox-siemens">Siemens</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="oven" id="checkbox-oven"><label for="checkbox-oven">Oven</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="delta" id="checkbox-delta"><label for="checkbox-delta">Delta</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="abb" id="checkbox-abb"><label for="checkbox-abb">Abb</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="schneider" id="checkbox-schneider"><label for="checkbox-schneider">schneider</label>
+                                            </div>
                                         </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="oven" id="checkbox-oven"><label for="checkbox-oven">Oven</label>
+                                    </li>
+                                    <li class="filters__item">
+                                        <h5 class="filters__category" data-category="type">Тип<span class="underline"></span></h5>
+                                        <div class="filters__wrapper" data-category="type">
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="plc" id="checkbox-siemens"><label for="checkbox-plc">PLC</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="frequency-converter" id="checkbox-frequency-converter"><label for="checkbox-frequency-converter">Преобразователь Частоты</label>
+                                            </div>
                                         </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="delta" id="checkbox-delta"><label for="checkbox-delta">Delta</label>
+                                    </li>
+                                    <li class="filters__item">
+                                        <h5 class="filters__category" data-category="year">Год выпуска <span class="underline"></span></h5>
+                                        <div class="filters__wrapper" data-category="year">
+                                            <div class="custom-nouislider__tooltips">
+                                                <div class="custom-nouislider__start" id="filter__age_start"></div>
+                                                <div class="custom-nouislider__end" id="filter__age_end"></div>
+                                            </div>
+                                            <div class="custom-nouislider" id="filter__age"></div>                                        
                                         </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="abb" id="checkbox-abb"><label for="checkbox-abb">Abb</label>
+                                    </li>
+                                    <li class="filters__item">
+                                        <h5 class="filters__category" data-category="amount">Количество на складе, шт.<span class="underline"></span></h5>
+                                        <div class="filters__wrapper" data-category="amount">
+                                            <div class="custom-nouislider__tooltips">
+                                                <div class="custom-nouislider__start" id="filter__amount_start"></div>
+                                                <div class="custom-nouislider__end" id="filter__amount_end"></div>
+                                            </div>
+                                            <div class="custom-nouislider" id="filter__amount"></div>
                                         </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="schneider" id="checkbox-schneider"><label for="checkbox-schneider">schneider</label>
+                                    </li>
+                                    <li class="filters__item">
+                                        <h5 class="filters__category" data-category="voltage">Напряжение питания<span class="underline"></span></h5>
+                                        <div class="filters__wrapper" data-category="voltage">
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="380VAC" id="checkbox-380VAC"><label for="checkbox-380VAC">380VAC</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="220VAC" id="checkbox-220VAC"><label for="checkbox-220VAC">220VAC</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="24VAC" id="checkbox-24VAC"><label for="checkbox-24VAC">24VAC</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="12VAC" id="checkbox-12VAC"><label for="checkbox-12VAC">12VAC</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="220VDC" id="checkbox-220VDC"><label for="checkbox-220VDC">220VDC</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="24VDC" id="checkbox-24VDC"><label for="checkbox-24VDC">24VDC</label>
+                                            </div>
+                                            <div class="checkbox-wrapper">
+                                                <input type="checkbox" name="12VDC" id="checkbox-12VDC"><label for="checkbox-12VDC">12VDC</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="filters__item">
-                                    <h5 class="filters__category" data-category="type">Тип<span class="underline"></span></h5>
-                                    <div class="filters__type filters__type-type filters__type-active" data-category="type">
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="plc" id="checkbox-siemens"><label for="checkbox-plc">PLC</label>
-                                        </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="frequency-converter" id="checkbox-frequency-converter"><label for="checkbox-frequency-converter">Преобразователь Частоты</label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="filters__item">
-                                    <h5 class="filters__category" data-category="year">Год выпуска <span class="underline"></span></h5>
-                                    <div class="filters__type filters__type-year filters__type-active" data-category="year">
-                                        <div class="custom-nouislider__tooltips">
-                                            <div class="custom-nouislider__start" id="filter__age_start"></div>
-                                            <div class="custom-nouislider__end" id="filter__age_end"></div>
-                                        </div>
-                                        <div class="custom-nouislider" id="filter__age"></div>                                        
-                                    </div>
-                                </li>
-                                <li class="filters__item">
-                                    <h5 class="filters__category" data-category="amount">Количество на складе, шт.<span class="underline"></span></h5>
-                                    <div class="filters__type filters__type-amount filters__type-active" data-category="amount">
-                                        <div class="custom-nouislider__tooltips">
-                                            <div class="custom-nouislider__start" id="filter__amount_start"></div>
-                                            <div class="custom-nouislider__end" id="filter__amount_end"></div>
-                                        </div>
-                                        <div class="custom-nouislider" id="filter__amount"></div>
-                                    </div>
-                                </li>
-                                <li class="filters__item">
-                                    <h5 class="filters__category" data-category="voltage">Напряжение питания<span class="underline"></span></h5>
-                                    <div class="filters__type filters__type-voltage filters__type-active" data-category="voltage">
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="380VAC" id="checkbox-380VAC"><label for="checkbox-380VAC">380VAC</label>
-                                        </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="220VAC" id="checkbox-220VAC"><label for="checkbox-220VAC">220VAC</label>
-                                        </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="24VAC" id="checkbox-24VAC"><label for="checkbox-24VAC">24VAC</label>
-                                        </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="12VAC" id="checkbox-12VAC"><label for="checkbox-12VAC">12VAC</label>
-                                        </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="220VDC" id="checkbox-220VDC"><label for="checkbox-220VDC">220VDC</label>
-                                        </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="24VDC" id="checkbox-24VDC"><label for="checkbox-24VDC">24VDC</label>
-                                        </div>
-                                        <div class="checkbox-wrapper">
-                                            <input type="checkbox" name="12VDC" id="checkbox-12VDC"><label for="checkbox-12VDC">12VDC</label>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </fieldset>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                        </form>
                     </aside>
                     <article class="arcticle">
                         <h2 class="visually-hidden">Наши продукты</h2>
                         <div class="article__wrapper">
-                            <a href="#" class="product_card">                            
+                            <!-- <a href="#" class="product_card">                            
                                 <figure class="product_card__wrapper">
                                     <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
                                     <figcaption>
@@ -202,351 +204,7 @@
                                         </div>
                                     </figcaption>
                                 </figure>
-                            </a>
-                            <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                            <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                            <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                            <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                            <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                            <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                            <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                            <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Датчики температуры (термопреобразователи)" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
+                            </a> -->
                         </div>
                     </article>
                 </div>
