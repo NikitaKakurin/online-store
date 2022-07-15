@@ -45,10 +45,12 @@ class CustomNouislider {
         const startValues = document.getElementById(`filter__${this.tooltipsIdPart}_start`);
         const endValues = document.getElementById(`filter__${this.tooltipsIdPart}_end`);
         if (!startValues || !endValues) throw new Error('startValues or endValues is null');
-        const formatValues = [startValues, endValues];
 
+        const formatValues = [startValues, endValues];
+        const event = new Event('changeSliderForms');
         this.formatSlider.noUiSlider.on('update', function (values, handle) {
             formatValues[handle].innerHTML = values[handle].toString();
+            document.dispatchEvent(event);
         });
     };
 
@@ -57,9 +59,14 @@ class CustomNouislider {
         this.formatSlider.noUiSlider.set([min, max]);
     }
 
-    getValues() {
+    get() {
         if (this.formatSlider.noUiSlider === undefined) throw new Error('formatSlider.noUiSlider - undefined');
         return this.formatSlider.noUiSlider.get();
+    }
+
+    reset() {
+        if (this.formatSlider.noUiSlider === undefined) throw new Error('formatSlider.noUiSlider - undefined');
+        this.formatSlider.noUiSlider.set([this.min, this.max]);
     }
 }
 
