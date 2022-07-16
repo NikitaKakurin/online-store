@@ -1,7 +1,7 @@
 export interface IDataItem {
     brand: string;
     model: string;
-    year: number;
+    year: string;
     type: string;
     price: string;
     amount: string;
@@ -9,4 +9,12 @@ export interface IDataItem {
     popularity: number;
 }
 
-export type IData = IDataItem[];
+export type DataType = IDataItem[];
+
+export interface IAllActiveFilters {
+    [x: string]: FormDataEntryValue;
+}
+
+interface INouisliderValues {
+    [valueName: string]: string;
+}

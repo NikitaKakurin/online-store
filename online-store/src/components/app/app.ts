@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import AppView from '../view/appView';
-import type { IData } from '../../typescript/interfaces';
+// import type { IData } from '../../typescript/interfaces';
 
 class App {
     controller: AppController;
@@ -35,8 +35,6 @@ class App {
         search.addEventListener('input', handleChangeForms);
 
         document.addEventListener('changeSliderForms', handleChangeForms);
-
-
         // this.controller.applyFilters((data?: IData) => this.view.drawCards(data));
         // showSources.addEventListener('click', () => {
         //     this.view.hideShowSources();
