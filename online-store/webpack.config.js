@@ -80,15 +80,11 @@ const baseConfig = {
                 use: cssLoaders(),
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
-                type: 'asset/resource',
-            },
-            {
                 test: /\.(mp3|wav)$/,
                 type: 'asset/resource',
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
+                test: /\.(png|jpeg|jpg|svg|gif)$/,
                 type: 'asset/resource',
             },
         ],
