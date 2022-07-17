@@ -17,34 +17,12 @@ class AppController {
         return data;
     }
 
-    // 12VAC: "on"+
-    // 12VDC: "on"+
-    // 24VAC: "on"+
-    // 24VDC: "on"+
-    // 220VAC: "on"+
-    // 220VDC: "on"+
-    // 380VAC: "on"+
-    // abb: "on"+
-    // delta: "on"+
-    // fc: "on"+
-    // maxAge: 2007
-    // maxAmount: 72
-    // minAge: 1987
-    // minAmount: 19
-    // oven: "on"+
-    // plc: "on"+
-    // popular: "on"+
-    // schneider: "on"+
-    // search: "hgfg"+
-    // siemens: "on"+
-    // sort: "name-up"
-
-    handleChangeForms() {
+    handleChangeForms(callback: (sortedData: DataType | []) => void) {
         const allActiveFilters: IAllActiveFilters = this.getAllActiveFilters();
         const filteredData = this.getFilterData(allActiveFilters);
         const sortedData = this.sortFilterData(filteredData, allActiveFilters.sort as string);
         console.log(sortedData);
-        return sortedData;
+        callback(sortedData);
     }
 
     sortFilterData(data: DataType | [], sort: string) {
@@ -134,6 +112,13 @@ class AppController {
             });
         };
 
+        const checkPopularity = () => {
+            if (!allActiveFilters.popular) return this.data;
+            return this.data.filter((card: IDataItem) => {
+                return card.popularity >= 8.5;
+            });
+        };
+
         const checkSearch = () => {
             if (!allActiveFilters.search) return this.data;
 
@@ -150,61 +135,8 @@ class AppController {
         this.data = checkType();
         this.data = checkYear();
         this.data = checkAmount();
+        this.data = checkPopularity();
         this.data = checkSearch();
-
-        //     Object.keys(allActiveFilters).forEach((filterKey: string) => {
-        //         switch (filterKey) {
-        //             case '12VAC':
-        //             case '24VAC':
-        //             case '220VAC':
-        //             case '380VAC':
-        //             case '12VDC':
-        //             case '24VDC':
-        //             case '220VDC':
-        //             case '380VDC':
-        //                 this.data = this.data.filter((card: IDataItem) => {
-        //                     return filterKey.toLowerCase() === card.voltage.toLowerCase();
-        //                 });
-        //                 break;
-        //             case 'delta':
-        //             case 'siemens':
-        //             case 'schneider':
-        //             case 'sbb':
-        //             case 'sven':
-        //                 this.data = this.data.filter((card: IDataItem) => {
-        //                     const filterKeyToLower = filterKey.toLowerCase();
-        //                     const key = filterKeyToLower === 'oven' ? 'овен' : filterKeyToLower;
-        //                     return key === card.brand.toLowerCase();
-        //                 });
-        //                 break;
-        //             case 'plc':
-        //             case 'fc':
-        //                 this.data = this.data.filter((card: IDataItem) => {
-        //                     const filterKeyToLower = filterKey.toLowerCase();
-        //                     const key = filterKeyToLower === 'plc' ? 'controller' : filterKeyToLower;
-        //                     return key === card.brand.toLowerCase();
-        //                 });
-        //                 break;
-        //             case 'minAge':
-        //                 this.data = this.data.filter((card: IDataItem) => {
-        //                     return filterBySliders('minAge', 'maxAge', card.year);
-        //                 });
-        //                 break;
-        //             case 'minAmount':
-        //                 this.data = this.data.filter((card: IDataItem) => {
-        //                     return filterBySliders('minAmount', 'maxAmount', card.amount);
-        //                 });
-        //                 break;
-        //             case 'search':
-        //                 this.data = this.data.filter((card: IDataItem) => {
-        //                     const subStrToLower = (allActiveFilters.search as string).toLowerCase();
-        //                     const brand = card.brand.toLowerCase();
-        //                     const model = card.model.toLowerCase();
-        //                     return brand.includes(subStrToLower) || model.includes(subStrToLower);
-        //                 });
-        //                 break;
-        //         }
-        //     });
         return this.data;
     }
 
