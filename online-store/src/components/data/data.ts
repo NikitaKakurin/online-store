@@ -80,7 +80,7 @@ const data: IDataItem[] = [
     },
     {
         brand: 'Овен',
-        model: 'ПЛК210',
+        model: 'ПЛК200',
         year: '2020',
         type: 'controller',
         price: '800$',
