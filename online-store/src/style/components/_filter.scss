@@ -2,6 +2,10 @@
     width: 100%;
     border-bottom: 1px solid #E7E7E7;
     padding-right: 60px;
+
+    @media (max-width:920px) {
+        padding-right: 0px;        
+    }
 }
 
 .filter__wrapper{
