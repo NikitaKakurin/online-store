@@ -74,7 +74,6 @@
     }
     &__wrapper{
         list-style: none;
-        @extend %cursor;
         @include flex($direction: column, $wrap:nowrap);
         max-height: 0px;
         overflow: hidden;
@@ -94,5 +93,15 @@
         @include flex($align:center,$wrap:nowrap);
         column-gap: 10px;
     }
+
+    label{
+        @extend %cursor;
+        width: 100%;
+        height: 100%;
+    }
+
+    input{
+        @extend %cursor;
+    };
 }
 

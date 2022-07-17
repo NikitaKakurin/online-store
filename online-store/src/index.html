@@ -66,10 +66,10 @@
                 </form>
                 <div class="basket-container">
                     <div class="basket-wrapper">
-                        <div class="basket">
-                            <div class="basket__count">20</div>
+                        <div class="basket ">
+                            <div class="basket__count basket__count-empty"></div>
                         </div>
-                        <div class="basket__total_price">2000$</div>
+                        <div class="basket__total_price"></div>
                     </div>
                 </div>
                 <div class="wrapper content-wrapper">
@@ -94,7 +94,7 @@
                                                 <input type="checkbox" name="abb" id="checkbox-abb"><label for="checkbox-abb">Abb</label>
                                             </div>
                                             <div class="checkbox-wrapper">
-                                                <input type="checkbox" name="schneider" id="checkbox-schneider"><label for="checkbox-schneider">schneider</label>
+                                                <input type="checkbox" name="schneider" id="checkbox-schneider"><label for="checkbox-schneider">Schneider</label>
                                             </div>
                                         </div>
                                     </li>
@@ -159,56 +159,9 @@
                             </fieldset>
                         </form>
                     </aside>
-                    <article class="arcticle">
+                    <article class="article">
                         <h2 class="visually-hidden">Наши продукты</h2>
                         <div class="article__wrapper">
-                            <!-- <a href="#" class="product_card">                            
-                                <figure class="product_card__wrapper">
-                                    <img src="./assets/img/1.png" alt="Siemens S300" width="246" height="200">
-                                    <figcaption>
-                                        <div class="product_card__name">
-                                            <span class="product_card__brand"></span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__brand">Брэнд:</span>
-                                            <span class="product_card__brand-value">Siemens</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__model">Mодель:</span>
-                                            <span class="product_card__model-value">S300</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__type">Тип:</span>
-                                            <span class="product_card__type-value">Controller</span>
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__year">Год выпуска:</span>
-                                            <span class="product_card__year-value">2010r</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__voltage">Напряжение:</span>
-                                            <span class="product_card__voltage-value">380VAC</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__amount">На складе:</span>
-                                            <span class="product_card__amount-value">10шт</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__price">Цена:</span>
-                                            <span class="product_card__price-value">400$</span> 
-                                        </div>
-                                        <div class="product_card__text">
-                                            <span class="product_card__basket">В корзине:</span>
-                                            <span class="product_card__basket-value">5шт</span> 
-                                        </div>
-                                        <div class="product_card__action">
-                                            <button class="product_card__delete"></button>
-                                            <button class="product_card__add"></button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a> -->
                         </div>
                     </article>
                 </div>
@@ -273,5 +226,58 @@
             </div>
         </footer>
     </div>
+    <template id="template-card" class="template">
+        <div class="product_card">                            
+            <figure class="product_card__wrapper">
+                <img class="product-card__image" src="#" alt="" width="246" height="200">
+                <figcaption>
+                    <p class="product_card__name">
+                        <span class="product_card__name-brand"></span>
+                        <span class="product_card__name-model"></span>
+                    </p>
+                    <div class="product_card__text">
+                        <span class="product_card__brand">Брэнд:</span>
+                        <span class="product_card__brand-value"></span>
+                    </div>
+                    <div class="product_card__text">
+                        <span class="product_card__model">Mодель:</span>
+                        <span class="product_card__model-value"></span>
+                    </div>
+                    <div class="product_card__text">
+                        <span class="product_card__type">Тип:</span>
+                        <span class="product_card__type-value"></span>
+                    </div>
+                    <div class="product_card__text">
+                        <span class="product_card__year">Год выпуска:</span>
+                        <span class="product_card__year-value"></span> 
+                    </div>
+                    <div class="product_card__text">
+                        <span class="product_card__voltage">Напряжение:</span>
+                        <span class="product_card__voltage-value"></span> 
+                    </div>
+                    <div class="product_card__text">
+                        <span class="product_card__amount">На складе:</span>
+                        <span class="product_card__amount-value"></span> 
+                    </div>
+                    <div class="product_card__text">
+                        <span class="product_card__price">Цена:</span>
+                        <span class="product_card__price-value"></span> 
+                    </div>
+                    <div class="product_card__text">
+                        <span class="product_card__popular">популярный:</span>
+                        <span class="product_card__popular-value"></span> 
+                    </div>
+                    <div class="product_card__text">
+                        <span class="product_card__basket">В корзине:</span>
+                        <span class="product_card__basket-value"></span> 
+                    </div>
+                    <div class="product_card__action">
+                        <button class="product_card__delete"><img src="./assets/svg/basket-minus.svg" alt="remove from basket"></button>
+                        <button class="product_card__add"><img src="./assets/svg/basket-plus.svg" alt="add to basket"></button>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+    </template>
 </body>
 </html>

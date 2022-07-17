@@ -16,11 +16,19 @@ function importAll(r: __WebpackModuleApi.RequireContext) {
 }
 
 importAll(require.context('../../assets/img', true, /\.(png|jpeg|jpg|svg)$/));
-console.log(allProductImgSrc);
 
 class AppView {
     drawCards(sortedData: DataType) {
+        const article = document.querySelector('.article__wrapper') as HTMLElement;
         const data = sortedData;
+        if (!data.length) {
+            const title = document.createElement('h3');
+            title.innerText = 'Извините, совпадений не обнаружено';
+            title.classList.add('empty-message');
+            article.innerHTML = '';
+            article.append(title);
+            return;
+        }
 
         function getSrc(brand: string, model: string) {
             const brandToLower = brand.toLowerCase();
@@ -95,7 +103,6 @@ class AppView {
             fragment.append(newsClone);
         });
 
-        const article = document.querySelector('.article__wrapper') as HTMLElement;
         article.innerHTML = '';
         article.appendChild(fragment);
     }
