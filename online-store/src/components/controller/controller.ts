@@ -12,9 +12,9 @@ class AppController {
         this.data = data;
     }
 
-    resetFilters() {
+    resetFilters(callback: (data: DataType | []) => void) {
         this.filterForm.resetFilters();
-        return data;
+        callback(data);
     }
 
     handleChangeForms(callback: (sortedData: DataType | []) => void) {

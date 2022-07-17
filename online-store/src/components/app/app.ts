@@ -28,7 +28,9 @@ class App {
         handleChangeForms();
 
         searchForm.addEventListener('reset', () => {
-            this.controller.resetFilters();
+            this.controller.resetFilters((data: DataType) => {
+                this.view.drawCards(data);
+            });
         });
 
         [searchForm, filterForm].forEach((form) => {
