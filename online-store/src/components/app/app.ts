@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import AppView from '../view/appView';
-// import type { IData } from '../../typescript/interfaces';
+import type { DataType } from '../../typescript/interfaces';
 
 class App {
     controller: AppController;
@@ -19,10 +19,13 @@ class App {
         const searchField = document.getElementById('search');
         if (!searchField) throw new Error('there is no search field');
         const search = searchField as HTMLInputElement;
-
         const handleChangeForms = () => {
-            this.controller.handleChangeForms();
+            this.controller.handleChangeForms((data: DataType) => {
+                this.view.drawCards(data);
+            });
         };
+
+        handleChangeForms();
 
         searchForm.addEventListener('reset', () => {
             this.controller.resetFilters();
@@ -35,33 +38,6 @@ class App {
         search.addEventListener('input', handleChangeForms);
 
         document.addEventListener('changeSliderForms', handleChangeForms);
-        // this.controller.applyFilters((data?: IData) => this.view.drawCards(data));
-        // showSources.addEventListener('click', () => {
-        //     this.view.hideShowSources();
-        // });
-
-        // [searchForm, filterForm].forEach((form) => {
-        //     form.addEventListener('change', (e: Event) => {
-        //         // this.controller.getCards(e, (data?: IData) => this.view.drawCards(data))
-        //         const filterFormData = new FormData(filterForm);
-        //         const filterData = Object.fromEntries(filterFormData.entries());
-        //         const searchFormData = new FormData(searchForm);
-        //         const searchData = Object.fromEntries(searchFormData.entries());
-
-        //         console.log(searchData);
-        //         console.log(filterData);
-        //     });
-        // });
-
-        // document.addEventListener('click', (e: Event) => {
-        //     // this.controller.getCards(e, (data?: IData) => this.view.drawCards(data))
-        //     const target = e.target as HTMLElement;
-        //     if(target.classList.contains(filters__category))
-        // });
-
-        // filterFieldset.addEventListener('click', (e: Event) =>
-        //     this.controller.handleClickOnFieldset(e, (data?: IData) => this.view.drawCards(data))
-        // );
     }
 }
 
