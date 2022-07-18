@@ -1,16 +1,19 @@
 import { SearchForm, FilterForm } from '../forms';
 import { SortedDataType, IDataItem, IAllActiveFilters } from '../../typescript/interfaces';
 import data from '../data/data';
+import Basket from '../basket';
 class AppController {
     searchForm: SearchForm;
     filterForm: FilterForm;
+    basket: Basket;
     data: SortedDataType;
     allFilters: (HTMLInputElement | HTMLSelectElement)[];
     isDrawDeactivate: boolean;
-
-    constructor(searchFormId: string, filterFormId: string) {
+    basketCount: number;
+    constructor(searchFormId: string, filterFormId: string, basketClass: string) {
         this.searchForm = new SearchForm(searchFormId);
         this.filterForm = new FilterForm(filterFormId);
+        this.basket = new Basket(basketClass);
         this.data = data;
         this.allFilters = [
             ...this.filterForm.form.getElementsByTagName('input'),
@@ -18,6 +21,7 @@ class AppController {
             ...this.searchForm.form.getElementsByTagName('select'),
         ];
         this.isDrawDeactivate = false;
+        this.basketCount = 0;
     }
 
     resetFilters(callback: (data: SortedDataType) => void) {
@@ -32,8 +36,72 @@ class AppController {
         const allActiveFilters: IAllActiveFilters = this.getAllActiveFilters();
         const filteredData = this.getFilterData(allActiveFilters);
         const sortedData = this.sortFilterData(filteredData, allActiveFilters.sort);
-        console.log(sortedData);
         callback(sortedData);
+    }
+
+    handleClick(e: Event) {
+        if (e.target === null) return;
+        const target = e.target as HTMLElement;
+
+        if (target.closest('.product_card__add')) {
+            const card = getCard(target);
+            const cardMessage = getCardElem(card, '.product_card__message');
+
+            if (this.basketCount + 1 > 20) {
+                cardMessage.textContent = 'Извините, все слоты заполнены';
+                return;
+            }
+
+            this.basketCount++;
+            const [cardBasket, cardPrice, cardBrand, cardModel] = getElements(card);
+
+            const cardName = `${cardBrand.textContent || ''}-${cardModel.textContent || ''}`;
+
+            cardBasket.textContent = cardBasket.textContent ? `${+cardBasket.textContent + 1}` : '1';
+
+            cardPrice.textContent = cardPrice.textContent || '';
+
+            this.basket.changeProduct(cardName, +cardBasket.textContent, +cardPrice.textContent.slice(0, -1));
+            return;
+        }
+
+        if (target.closest('.product_card__delete')) {
+            const card = getCard(target);
+            const cardMessage = getCardElem(card, '.product_card__message');
+            cardMessage.textContent = '';
+            const [cardBasket, cardPrice, cardBrand, cardModel] = getElements(card);
+
+            if (cardBasket.textContent === '0') return;
+
+            this.basketCount = this.basketCount - 1 < 0 ? 0 : this.basketCount - 1;
+
+            const cardName = `${cardBrand.textContent || ''}-${cardModel.textContent || ''}`;
+
+            cardBasket.textContent = cardBasket.textContent || '0';
+            cardBasket.textContent = +cardBasket.textContent - 1 >= 0 ? `${+cardBasket.textContent - 1}` : '0';
+
+            this.basket.changeProduct(cardName, +cardBasket.textContent, +(cardPrice.textContent || '0$').slice(0, -1));
+            return;
+        }
+
+        function getCardElem(card: HTMLElement, className: string) {
+            const elem = card.querySelector(className);
+            if (!elem) throw new Error(`There is no ${className}`);
+            return elem as HTMLElement;
+        }
+
+        function getCard(target: HTMLElement) {
+            if (!target.closest('.product_card')) throw new Error('there is no .product_card');
+            return target.closest('.product_card') as HTMLElement;
+        }
+
+        function getElements(card: HTMLElement) {
+            const cardBasket = getCardElem(card, '.product_card__basket-value');
+            const cardBrand = getCardElem(card, '.product_card__brand-value');
+            const cardModel = getCardElem(card, '.product_card__model-value');
+            const cardPrice = getCardElem(card, '.product_card__price-value');
+            return [cardBasket, cardPrice, cardBrand, cardModel];
+        }
     }
 
     sortFilterData(data: SortedDataType, sort: string) {

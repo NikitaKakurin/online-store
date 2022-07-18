@@ -1,12 +1,12 @@
 import AppController from '../controller/controller';
 import AppView from '../view/appView';
-import type { DataType, IAllActiveFilters } from '../../typescript/interfaces';
+import type { DataType } from '../../typescript/interfaces';
 
 class App {
     private controller: AppController;
     private view: AppView;
     constructor() {
-        this.controller = new AppController('form-search', 'form-filter');
+        this.controller = new AppController('form-search', 'form-filter', '.basket-container');
         this.view = new AppView();
     }
 
@@ -54,6 +54,7 @@ class App {
                 isLocalMustSave = false;
                 return;
             }
+            this.controller.handleClick(e);
         });
 
         window.addEventListener('beforeunload', (event) => {

@@ -17,6 +17,10 @@ export interface IAllActiveFilters {
     [x: string]: string;
 }
 
-interface INouisliderValues {
-    [valueName: string]: string;
+export interface IBasketProductsProp {
+    count: number;
+    totalPrice: number;
+}
+export interface IBasketProducts {
+    [productName: string]: IBasketProductsProp;
 }
