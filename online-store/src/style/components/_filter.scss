@@ -21,7 +21,7 @@
     @include flex($wrap:nowrap, $align:center);
 }
 
-.filter__reset{
+.button__reset{
     height: 30px;
     border-radius: 5px;
     border: none;
@@ -34,6 +34,13 @@
     &:hover{
         background-color:darken($color: $color-button, $amount: 10%)
     }
+}
+.reset-settings__container{
+    @include flex($align:center, $j_content:flex-end);
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
 }
 
 .filters{

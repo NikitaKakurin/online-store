@@ -13,13 +13,13 @@ class App {
     start(): void {
         const searchF = document.getElementById('form-search');
         const filterF = document.getElementById('form-filter');
+        const searchField = document.getElementById('search');
         if (!searchF || !filterF) throw new Error('there is no such forms');
         const searchForm = searchF as HTMLFormElement;
         const filterForm = filterF as HTMLFormElement;
-        const searchField = document.getElementById('search');
         if (!searchField) throw new Error('there is no search field');
         const search = searchField as HTMLInputElement;
-
+        let isLocalMustSave = true;
         const drawCards = (data: DataType) => {
             this.view.drawCards(data);
         };
@@ -46,7 +46,18 @@ class App {
 
         document.addEventListener('changeSliderForms', handleChangeForms);
 
+        document.addEventListener('click', (e: Event) => {
+            if (e.target === null) return;
+            const target = e.target as HTMLElement;
+            if (target.id === 'reset-settings') {
+                localStorage.clear();
+                isLocalMustSave = false;
+                return;
+            }
+        });
+
         window.addEventListener('beforeunload', (event) => {
+            if (!isLocalMustSave) return;
             event.preventDefault();
             const allActiveFilters = this.controller.getAllActiveFilters();
             localStorage.setItem('allActiveFilters', JSON.stringify(allActiveFilters));
