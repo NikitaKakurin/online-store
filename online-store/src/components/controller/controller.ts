@@ -165,17 +165,14 @@ class AppController {
 
     initLoad(callback: (sortedData: SortedDataType) => void) {
         this.isDrawDeactivate = true;
-        this.setfilters();
+        this.setFilters();
         this.isDrawDeactivate = false;
         this.handleChangeForms(callback);
     }
 
-    setfilters() {
+    setFilters() {
         const stringActiveFilters = localStorage.getItem('allActiveFilters');
-        if (!stringActiveFilters) {
-            // this.handleChangeForms();
-            return;
-        }
+        if (!stringActiveFilters) return;
         const activeFilters = JSON.parse(stringActiveFilters) as IAllActiveFilters;
 
         this.allFilters.forEach((input) => {
