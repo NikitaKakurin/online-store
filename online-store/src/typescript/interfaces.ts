@@ -11,8 +11,10 @@ export interface IDataItem {
 
 export type DataType = IDataItem[];
 
+export type SortedDataType = DataType | [];
+
 export interface IAllActiveFilters {
-    [x: string]: FormDataEntryValue;
+    [x: string]: string;
 }
 
 interface INouisliderValues {

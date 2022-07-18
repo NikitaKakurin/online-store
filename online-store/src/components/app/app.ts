@@ -1,9 +1,9 @@
 import AppController from '../controller/controller';
 import AppView from '../view/appView';
-import type { DataType } from '../../typescript/interfaces';
+import type { DataType, IAllActiveFilters } from '../../typescript/interfaces';
 
 class App {
-    controller: AppController;
+    private controller: AppController;
     private view: AppView;
     constructor() {
         this.controller = new AppController('form-search', 'form-filter');
@@ -19,18 +19,23 @@ class App {
         const searchField = document.getElementById('search');
         if (!searchField) throw new Error('there is no search field');
         const search = searchField as HTMLInputElement;
-        const handleChangeForms = () => {
-            this.controller.handleChangeForms((data: DataType) => {
-                this.view.drawCards(data);
-            });
+
+        const drawCards = (data: DataType) => {
+            this.view.drawCards(data);
         };
 
-        handleChangeForms();
+        const handleChangeForms = () => {
+            this.controller.handleChangeForms(drawCards);
+        };
+
+        const initLoadCards = () => {
+            this.controller.initLoad(drawCards);
+        };
+
+        initLoadCards();
 
         searchForm.addEventListener('reset', () => {
-            this.controller.resetFilters((data: DataType) => {
-                this.view.drawCards(data);
-            });
+            this.controller.resetFilters(drawCards);
         });
 
         [searchForm, filterForm].forEach((form) => {
@@ -40,6 +45,12 @@ class App {
         search.addEventListener('input', handleChangeForms);
 
         document.addEventListener('changeSliderForms', handleChangeForms);
+
+        window.addEventListener('beforeunload', (event) => {
+            event.preventDefault();
+            const allActiveFilters = this.controller.getAllActiveFilters();
+            localStorage.setItem('allActiveFilters', JSON.stringify(allActiveFilters));
+        });
     }
 }
 

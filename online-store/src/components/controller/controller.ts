@@ -1,31 +1,42 @@
 import { SearchForm, FilterForm } from '../forms';
-import { DataType, IDataItem, IAllActiveFilters } from '../../typescript/interfaces';
+import { SortedDataType, IDataItem, IAllActiveFilters } from '../../typescript/interfaces';
 import data from '../data/data';
 class AppController {
     searchForm: SearchForm;
     filterForm: FilterForm;
-    data: DataType | [];
+    data: SortedDataType;
+    allFilters: (HTMLInputElement | HTMLSelectElement)[];
+    isDrawDeactivate: boolean;
 
     constructor(searchFormId: string, filterFormId: string) {
         this.searchForm = new SearchForm(searchFormId);
         this.filterForm = new FilterForm(filterFormId);
         this.data = data;
+        this.allFilters = [
+            ...this.filterForm.form.getElementsByTagName('input'),
+            ...this.searchForm.form.getElementsByTagName('input'),
+            ...this.searchForm.form.getElementsByTagName('select'),
+        ];
+        this.isDrawDeactivate = false;
     }
 
-    resetFilters(callback: (data: DataType | []) => void) {
+    resetFilters(callback: (data: SortedDataType) => void) {
+        this.isDrawDeactivate = true;
         this.filterForm.resetFilters();
+        this.isDrawDeactivate = false;
         callback(data);
     }
 
-    handleChangeForms(callback: (sortedData: DataType | []) => void) {
+    handleChangeForms(callback: (sortedData: SortedDataType) => void) {
+        if (this.isDrawDeactivate) return;
         const allActiveFilters: IAllActiveFilters = this.getAllActiveFilters();
         const filteredData = this.getFilterData(allActiveFilters);
-        const sortedData = this.sortFilterData(filteredData, allActiveFilters.sort as string);
+        const sortedData = this.sortFilterData(filteredData, allActiveFilters.sort);
         console.log(sortedData);
         callback(sortedData);
     }
 
-    sortFilterData(data: DataType | [], sort: string) {
+    sortFilterData(data: SortedDataType, sort: string) {
         if (!data.length || !sort) {
             return data;
         }
@@ -123,7 +134,7 @@ class AppController {
             if (!allActiveFilters.search) return this.data;
 
             return this.data.filter((card: IDataItem) => {
-                const subStrToLower = (allActiveFilters.search as string).toLowerCase();
+                const subStrToLower = allActiveFilters.search.toLowerCase();
                 const brand = card.brand.toLowerCase();
                 const model = card.model.toLowerCase();
                 return brand.includes(subStrToLower) || model.includes(subStrToLower);
@@ -149,7 +160,37 @@ class AppController {
             ...filterFormFilters.ageSlider,
             ...filterFormFilters.amountSlider,
         };
-        return allActiveFilters;
+        return allActiveFilters as IAllActiveFilters;
+    }
+
+    initLoad(callback: (sortedData: SortedDataType) => void) {
+        this.isDrawDeactivate = true;
+        this.setfilters();
+        this.isDrawDeactivate = false;
+        this.handleChangeForms(callback);
+    }
+
+    setfilters() {
+        const stringActiveFilters = localStorage.getItem('allActiveFilters');
+        if (!stringActiveFilters) {
+            // this.handleChangeForms();
+            return;
+        }
+        const activeFilters = JSON.parse(stringActiveFilters) as IAllActiveFilters;
+
+        this.allFilters.forEach((input) => {
+            if (!activeFilters[input.name]) {
+                return;
+            }
+            if (input.type === 'checkbox') {
+                (input as HTMLInputElement).checked = true;
+                return;
+            }
+            input.value = activeFilters[input.name];
+        });
+
+        this.filterForm.ageSlider.set(+activeFilters.minAge, +activeFilters.maxAge);
+        this.filterForm.amountSlider.set(+activeFilters.minAmount, +activeFilters.maxAmount);
     }
 }
 export default AppController;
