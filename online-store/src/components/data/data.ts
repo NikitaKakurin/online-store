@@ -9,7 +9,6 @@ const data: IDataItem[] = [
         price: '400$',
         amount: '5',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 9.1,
     },
     {
@@ -20,7 +19,6 @@ const data: IDataItem[] = [
         price: '450$',
         amount: '12',
         voltage: '12VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 6.1,
     },
     {
@@ -31,7 +29,6 @@ const data: IDataItem[] = [
         price: '450$',
         amount: '16',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.7,
     },
     {
@@ -42,7 +39,6 @@ const data: IDataItem[] = [
         price: '500$',
         amount: '8',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 6.7,
     },
     {
@@ -53,7 +49,6 @@ const data: IDataItem[] = [
         price: '500$',
         amount: '30',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.7,
     },
     {
@@ -64,7 +59,6 @@ const data: IDataItem[] = [
         price: '500$',
         amount: '15',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.7,
     },
     {
@@ -75,7 +69,6 @@ const data: IDataItem[] = [
         price: '700$',
         amount: '35',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 9.6,
     },
     {
@@ -86,7 +79,6 @@ const data: IDataItem[] = [
         price: '800$',
         amount: '48',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.7,
     },
     {
@@ -97,7 +89,6 @@ const data: IDataItem[] = [
         price: '700$',
         amount: '48',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.3,
     },
     {
@@ -108,7 +99,6 @@ const data: IDataItem[] = [
         price: '400$',
         amount: '69',
         voltage: '220VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.8,
     },
     {
@@ -119,7 +109,6 @@ const data: IDataItem[] = [
         price: '430$',
         amount: '49',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.1,
     },
     {
@@ -130,7 +119,6 @@ const data: IDataItem[] = [
         price: '430$',
         amount: '49',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.9,
     },
     {
@@ -141,7 +129,6 @@ const data: IDataItem[] = [
         price: '430$',
         amount: '49',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.9,
     },
     {
@@ -152,7 +139,6 @@ const data: IDataItem[] = [
         price: '430$',
         amount: '49',
         voltage: '24VDC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.6,
     },
     {
@@ -163,7 +149,6 @@ const data: IDataItem[] = [
         price: '6000$',
         amount: '3',
         voltage: '380VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.6,
     },
     {
@@ -174,7 +159,6 @@ const data: IDataItem[] = [
         price: '300$',
         amount: '13',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.6,
     },
     {
@@ -185,8 +169,7 @@ const data: IDataItem[] = [
         price: '500$',
         amount: '7',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
-        popularity: 7.6,
+        popularity: 8.6,
     },
     {
         brand: 'ABB',
@@ -196,7 +179,6 @@ const data: IDataItem[] = [
         price: '40000$',
         amount: '7',
         voltage: '380VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.6,
     },
     {
@@ -207,7 +189,6 @@ const data: IDataItem[] = [
         price: '500$',
         amount: '7',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.6,
     },
     {
@@ -218,7 +199,6 @@ const data: IDataItem[] = [
         price: '500$',
         amount: '5',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.6,
     },
     {
@@ -229,7 +209,6 @@ const data: IDataItem[] = [
         price: '500$',
         amount: '7',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 7.6,
     },
     {
@@ -240,7 +219,6 @@ const data: IDataItem[] = [
         price: '230$',
         amount: '22',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.3,
     },
     {
@@ -251,7 +229,6 @@ const data: IDataItem[] = [
         price: '630$',
         amount: '12',
         voltage: '380VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.3,
     },
     {
@@ -262,7 +239,6 @@ const data: IDataItem[] = [
         price: '1650$',
         amount: '2',
         voltage: '380VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.3,
     },
     {
@@ -273,8 +249,7 @@ const data: IDataItem[] = [
         price: '350$',
         amount: '89',
         voltage: '380VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
-        popularity: 6.3,
+        popularity: 9.3,
     },
     {
         brand: 'Овен',
@@ -284,7 +259,6 @@ const data: IDataItem[] = [
         price: '1450$',
         amount: '39',
         voltage: '380VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.3,
     },
     {
@@ -295,7 +269,6 @@ const data: IDataItem[] = [
         price: '350$',
         amount: '19',
         voltage: '220VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
         popularity: 8.3,
     },
     {
@@ -306,8 +279,7 @@ const data: IDataItem[] = [
         price: '1350$',
         amount: '6',
         voltage: '380VAC',
-        // imageSrc: `${getGetImgUrl()}.jpg`,
-        popularity: 8.3,
+        popularity: 8.9,
     },
 ];
 
