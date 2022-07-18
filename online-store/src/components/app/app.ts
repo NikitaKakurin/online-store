@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import AppView from '../view/appView';
-import type { DataType } from '../../typescript/interfaces';
+import type { DataType, IBasketProducts } from '../../typescript/interfaces';
 
 class App {
     private controller: AppController;
@@ -20,8 +20,8 @@ class App {
         if (!searchField) throw new Error('there is no search field');
         const search = searchField as HTMLInputElement;
         let isLocalMustSave = true;
-        const drawCards = (data: DataType) => {
-            this.view.drawCards(data);
+        const drawCards = (data: DataType, basketData?: IBasketProducts) => {
+            this.view.drawCards(data, basketData);
         };
 
         const handleChangeForms = () => {
@@ -62,6 +62,7 @@ class App {
             event.preventDefault();
             const allActiveFilters = this.controller.getAllActiveFilters();
             localStorage.setItem('allActiveFilters', JSON.stringify(allActiveFilters));
+            localStorage.setItem('allProductsInBasket', JSON.stringify(this.controller.basket.allProductsInBasket));
         });
     }
 }

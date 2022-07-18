@@ -1,8 +1,8 @@
-import { DataType, IDataItem } from '../../typescript/interfaces';
+import { DataType, IDataItem, IBasketProducts } from '../../typescript/interfaces';
 import ProductCard from '../card';
 
 class AppView {
-    drawCards(sortedData: DataType) {
+    drawCards(sortedData: DataType, basketData?: IBasketProducts) {
         const article = document.querySelector('.article__wrapper') as HTMLElement;
         const data = sortedData;
         if (!data.length) {
@@ -18,7 +18,7 @@ class AppView {
         const cardTemplate = document.getElementById('template-card') as HTMLTemplateElement;
 
         data.forEach((item: IDataItem): void => {
-            const card = new ProductCard(item, cardTemplate);
+            const card = new ProductCard(item, cardTemplate, basketData);
             fragment.append(card.get());
         });
 

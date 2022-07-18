@@ -1,5 +1,5 @@
 import { SearchForm, FilterForm } from '../forms';
-import { SortedDataType, IDataItem, IAllActiveFilters } from '../../typescript/interfaces';
+import { SortedDataType, IDataItem, IAllActiveFilters, IBasketProducts } from '../../typescript/interfaces';
 import data from '../data/data';
 import Basket from '../basket';
 class AppController {
@@ -31,12 +31,15 @@ class AppController {
         callback(data);
     }
 
-    handleChangeForms(callback: (sortedData: SortedDataType) => void) {
+    handleChangeForms(
+        callback: (sortedData: SortedDataType, basketData?: IBasketProducts) => void,
+        basketData?: IBasketProducts
+    ) {
         if (this.isDrawDeactivate) return;
         const allActiveFilters: IAllActiveFilters = this.getAllActiveFilters();
         const filteredData = this.getFilterData(allActiveFilters);
         const sortedData = this.sortFilterData(filteredData, allActiveFilters.sort);
-        callback(sortedData);
+        callback(sortedData, basketData);
     }
 
     handleClick(e: Event) {
@@ -234,8 +237,14 @@ class AppController {
     initLoad(callback: (sortedData: SortedDataType) => void) {
         this.isDrawDeactivate = true;
         this.setFilters();
+        const allProductsInBasket = localStorage.getItem('allProductsInBasket');
+        if (allProductsInBasket) {
+            this.basket.allProductsInBasket = JSON.parse(allProductsInBasket) as IBasketProducts;
+            this.basket.calcTotal();
+        }
+
         this.isDrawDeactivate = false;
-        this.handleChangeForms(callback);
+        this.handleChangeForms(callback, this.basket.allProductsInBasket);
     }
 
     setFilters() {

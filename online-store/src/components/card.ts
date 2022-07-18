@@ -1,4 +1,4 @@
-import { IDataItem } from '../typescript/interfaces';
+import { IBasketProducts, IDataItem } from '../typescript/interfaces';
 
 function getNames(key: string) {
     const lastSlashIndex = key.lastIndexOf('/');
@@ -36,10 +36,12 @@ class ProductCard {
     buttonPlus: HTMLElement | null;
     buttonMinus: HTMLElement | null;
     basketCount: number;
+    basketData: IBasketProducts | undefined;
 
-    constructor(cardData: IDataItem, cardTemplate: HTMLTemplateElement) {
+    constructor(cardData: IDataItem, cardTemplate: HTMLTemplateElement, basketData?: IBasketProducts) {
         this.cardData = cardData;
         this.basketCount = 0;
+        this.basketData = basketData;
 
         this.cardClone = cardTemplate.content.cloneNode(true) as HTMLElement;
 
@@ -89,7 +91,12 @@ class ProductCard {
 
         this.cardBasket = this.cardClone.querySelector('.product_card__basket-value');
         if (!this.cardBasket) throw new Error('this.cardBasket is null');
-        this.cardBasket.textContent = '0';
+        if (basketData) {
+            this.cardBasket.textContent =
+                basketData[`${this.cardData.brand}-${this.cardData.model}`]?.count.toString() || '0';
+        } else {
+            this.cardBasket.textContent = '0';
+        }
 
         this.cardPopular = this.cardClone.querySelector('.product_card__popular-value');
         if (!this.cardPopular) throw new Error('this.cardPopular is null');
@@ -100,28 +107,8 @@ class ProductCard {
 
         this.buttonMinus = this.cardClone.querySelector('.product_card__delete');
         if (!this.buttonMinus) throw new Error('this.buttonMinus is null');
-
-        // this.initEvents();
     }
 
-    // initEvents() {
-    //     const event = new Event('changeCountProducts');
-    //     (this.card as HTMLElement).addEventListener('click', (e: Event) => {
-    //         if (e.target === null) return;
-    //         const target = e.target as HTMLElement;
-    //         if (target.closest('.product_card__add')) {
-    //             this.basketCount++;
-    //             (this.cardBasket as HTMLElement).textContent = this.basketCount.toString();
-    //             return;
-    //         }
-    //         if (target.closest('.product_card__delete')) {
-    //             this.basketCount = this.basketCount - 1 < 0 ? 0 : this.basketCount - 1;
-    //             (this.cardBasket as HTMLElement).textContent = this.basketCount.toString();
-    //             dispatchEvent(event);
-    //             return;
-    //         }
-    //     });
-    // }
     getSrc(brand: string, model: string) {
         const brandToLower = brand.toLowerCase();
         const modelToLower = model.toLowerCase();
