@@ -76,8 +76,6 @@ export class FilterForm extends Form {
 
     resetFilters() {
         this.resetCommonFilters();
-        // this.ageSlider.set(this.ageSlider.min, this.ageSlider.max);
-        // this.amountSlider.set(this.amountSlider.min, this.amountSlider.max);
         this.ageSlider.reset();
         this.amountSlider.reset();
     }

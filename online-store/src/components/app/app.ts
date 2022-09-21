@@ -32,6 +32,10 @@ class App {
             this.controller.initLoad(drawCards);
         };
 
+        const handleSubmitForms = (e: SubmitEvent) => {
+            e.preventDefault();
+        };
+
         initLoadCards();
 
         searchForm.addEventListener('reset', () => {
@@ -40,6 +44,10 @@ class App {
 
         [searchForm, filterForm].forEach((form) => {
             form.addEventListener('change', handleChangeForms);
+        });
+
+        [searchForm, filterForm].forEach((form) => {
+            form.addEventListener('submit', handleSubmitForms);
         });
 
         search.addEventListener('input', handleChangeForms);
@@ -52,6 +60,11 @@ class App {
             if (target.id === 'reset-settings') {
                 localStorage.clear();
                 isLocalMustSave = false;
+                return;
+            }
+            if (target.id === 'search-reset') {
+                search.value = '';
+                handleChangeForms();
                 return;
             }
             this.controller.handleClick(e);

@@ -24,7 +24,7 @@
         @extend %font-prim;
         @include font-param($size:1.4rem, $weight:500, $height:1.7rem, $letter:0.1em);
         @extend %text-transform;
-        @extend %cursor;
+        cursor: pointer;
         text-decoration: none;
         color:$color-text;
 
@@ -35,7 +35,14 @@
         &-active+.underline{
             width:100%;
         }
+
+        &-disabled{
+          cursor: not-allowed;
+          opacity: 0.3;
+        }
     }
+
+   
 }
 
 
